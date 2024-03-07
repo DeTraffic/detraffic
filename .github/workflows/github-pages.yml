@@ -23,9 +23,10 @@ jobs:
 
       # ADJUST THIS: install all dependencies (including pdoc)
       - run: pip install -e .
+      - run: pip install pdoc
       # ADJUST THIS: build your documentation into docs/.
       # We use a custom build script for pdoc itself, ideally you just run `pdoc -o docs/ ...` here.
-      - run: python -m pdoc -o docs/ detraffic
+      - run: pdoc -o docs/ detraffic
 
       - uses: actions/upload-pages-artifact@v3
         with:
