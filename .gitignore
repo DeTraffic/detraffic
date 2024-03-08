@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # ruff
-.ruff/cache/
+.ruff_cache/
