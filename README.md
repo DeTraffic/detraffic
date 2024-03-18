@@ -1,5 +1,3 @@
-# detraffic
-
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/DeTraffic/detraffic/blob/main/assets/icon-dark.svg">
