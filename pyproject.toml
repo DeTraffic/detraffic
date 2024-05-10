@@ -7,17 +7,18 @@ license = "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-sumo-rl = "^1.4.3"
+sumo-rl = "^1.4.5"
 pettingzoo = "^1.24.3"
+torch = "^2.2.2"
 
 [tool.poetry.dev-dependencies]
 pdoc = "^14.4.0"
 pytest = "^8.1.0"
-ipython = "^8.22.2"
 mypy = "^1.8.0"
 pre-commit = "^3.6.2"
 ruff = "^0.3.1"
 refurb = "^1.28.0"
+ipykernel = "^6.29.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
