@@ -17,11 +17,10 @@ from utils import load_yaml
 
 
 class Experiment:
-    def __init__(self, name, models, envs, iters, hyperparams):
+    def __init__(self, name, models, envs, hyperparams):
         self.name: str = name
         self.models: list[pathlib.Path] = models
         self.envs: [str] = envs
-        self.iters: [int] = iters
         self.hyperparams = hyperparams
         self.results = {}
 
@@ -50,10 +49,9 @@ class Experiment:
             env = env_cls(parallel=True, sumo_warnings=False)
 
             for model_conf in self.models:
-                for iter_count in self.iters:
-                    game = Game(env, env_name, model_conf, self.hyperparams, iter_count)
-                    result = game.run()
-                    self.results[env_name][model_conf.name] = result
+                game = Game(env, env_name, model_conf, self.hyperparams)
+                result = game.run()
+                self.results[env_name][model_conf.name] = result
 
         return self.results
 
@@ -109,11 +107,10 @@ class Experiment:
             for model in config_dict["models"]
         ]
         envs = config_dict["envs"]
-        iters = config_dict["iters"]
         hyperparams = config_dict["hyperparams"]
 
         return cls(
-            name=name, models=models, envs=envs, iters=iters, hyperparams=hyperparams
+            name=name, models=models, envs=envs, hyperparams=hyperparams
         )
 
     @classmethod

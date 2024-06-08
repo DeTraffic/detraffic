@@ -7,8 +7,4 @@ models:
 - models/kaqn/kaqn-b
 
 envs: !include experiments/common/envs.yaml
-
-iters:
-  - 10
-
 hyperparams: !include experiments/common/hyperparams.yaml

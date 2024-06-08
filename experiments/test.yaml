@@ -8,7 +8,4 @@ envs:
 - ingolstadt1
 - cologne3
 
-iters:
-  - 3
-
 hyperparams: !include experiments/common/hyperparams.yaml

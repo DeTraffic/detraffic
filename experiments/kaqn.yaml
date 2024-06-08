@@ -2,4 +2,4 @@ name: kaqn
 
 models: !include experiments/common/kaqn_models.yaml
 envs: !include experiments/common/envs.yaml
-iters: !include experiments/common/iters.yaml
+hyperparams: !include experiments/common/hyperparams.yaml

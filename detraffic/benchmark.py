@@ -32,4 +32,4 @@ experiment.save(RESULT_PATH.with_suffix(".pkl"))
 with open(RESULT_PATH.with_suffix(".pkl"), "rb") as f_obj:
     results = pickle.load(f_obj)
 
-Experiment.plot(PLOT_PATH, results, 1)
+Experiment.plot(PLOT_PATH, results, experiment.hyperparams["iters"])

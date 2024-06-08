@@ -8,12 +8,11 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 class Game:
-    def __init__(self, env, env_name, model_conf, hyperparams, iter_count):
+    def __init__(self, env, env_name, model_conf, hyperparams):
         self.env = env
         self.env_name = env_name
         self.model_conf = model_conf
         self.hyperparams = hyperparams
-        self.iter_count = iter_count
 
         self._init()
 
@@ -43,11 +42,11 @@ class Game:
             "system_mean_waiting_time",
             "system_mean_speed",
         }
-        metrics = {metric: 720 * self.iter_count * [0] for metric in metrics_to_track}
+        metrics = {metric: 720 * self.hyperparams["iters"] * [0] for metric in metrics_to_track}
         start_time = time.perf_counter()
 
         for i_episode in tqdm.tqdm(
-            range(self.iter_count), desc=f"{self.env_name}: {self.model_conf.name}"
+            range(self.hyperparams["iters"]), desc=f"{self.env_name}: {self.model_conf.name}"
         ):
             # Initialize the environment and get its state
             states, infos = self.env.reset()
@@ -157,11 +156,11 @@ class Game:
             )
 
     def _optimize_policies(self):
-        for agent_id, agent in self.agents.items():
+        for agent in self.agents.values():
             agent.optimize_policy()
 
     def _optimize_targets(self):
-        for agent_id, agent in self.agents.items():
+        for agent in self.agents.values():
             agent.optimize_target()
 
     def _total_reward(self, rewards):

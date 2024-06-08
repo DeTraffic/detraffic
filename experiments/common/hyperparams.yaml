@@ -8,3 +8,4 @@ optimizer: adam
 criterion: smooth_l1_loss
 lr: 0.001
 replay_memory_capacity: 100000
+iters: 100
