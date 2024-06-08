@@ -1,0 +1,6 @@
+layers:
+  - linear 128
+  - relu
+  - linear 128
+  - relu
+  - linear final

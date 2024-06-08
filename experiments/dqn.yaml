@@ -1,0 +1,5 @@
+name: dqn
+
+models: !include experiments/common/dqn_models.yaml
+envs: !include experiments/common/envs.yaml
+iters: !include experiments/common/iters.yaml

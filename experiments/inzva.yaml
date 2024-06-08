@@ -1,0 +1,14 @@
+name: inzva
+
+models:
+- models/dqn/dqn-s
+- models/dqn/dqn-b
+- models/kaqn/kaqn-s
+- models/kaqn/kaqn-b
+
+envs: !include experiments/common/envs.yaml
+
+iters:
+  - 10
+
+hyperparams: !include experiments/common/hyperparams.yaml

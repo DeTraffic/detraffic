@@ -1,0 +1,14 @@
+name: test
+
+models:
+- models/dqn/dqn-s
+- models/kaqn/kaqn-s
+
+envs:
+- ingolstadt1
+- cologne3
+
+iters:
+  - 3
+
+hyperparams: !include experiments/common/hyperparams.yaml

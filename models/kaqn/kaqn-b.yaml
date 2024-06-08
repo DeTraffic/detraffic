@@ -1,0 +1,6 @@
+
+layers:
+  - kan_linear 256
+  - kan_linear 1024
+  - kan_linear 128
+  - kan_linear final

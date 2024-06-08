@@ -13,12 +13,34 @@ DeTraffic is a multi-agent deep reinforcement learning model to de-traffic our l
 
 ## Table Of Contents
 
-1. [Installation](#Installation)
-2. [Development](#Development)
+1. [Installation](#installation)
+2. [Development](#development)
+3. [Running experiments](#running_experiments)
+4. [Acknowledgement](#acknowledgement)
 3. [License](#license)
 
 ## Installation
 
+### SUMO
+You have to install SUMO beforehand.
+
+```bash
+sudo add-apt-repository ppa:sumo/stable
+sudo apt-get update
+sudo apt-get install sumo sumo-tools sumo-doc
+```
+Don't forget to set SUMO_HOME variable (default sumo installation path is /usr/share/sumo)
+```bash
+echo 'export SUMO_HOME="/usr/share/sumo"' >> ~/.bashrc
+source ~/.bashrc
+```
+Important: for a huge performance boost (~8x) with Libsumo, you can declare the variable:
+```bash
+export LIBSUMO_AS_TRACI=1
+```
+Notice that you will not be able to run with sumo-gui or with multiple simulations in parallel if this is active ([more details](https://sumo.dlr.de/docs/Libsumo.html)).
+
+### DeTraffic
 If you do not have `poetry` installed:
 
 ```bash
@@ -63,3 +85,16 @@ pre-commit install
 ### ruff
 
 ### refurb
+
+## Running experiments
+
+You can check predefined experiments at `experiments` and models at `models`, or define your own experiments or models.
+
+```bash
+poetry shell
+python detraffic/benchmark.py
+```
+
+## Acknowledgement
+
+This repository contains code from [PyTorch Reinforcement Learning (DQN) Tutorial](https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html) and [efficient-kan](https://github.com/Blealtan/efficient-kan/). Also containts SUMO installation steps from [sumo-rl](https://github.com/LucasAlegre/sumo-rl/).
